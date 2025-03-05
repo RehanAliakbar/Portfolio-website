@@ -1,0 +1,698 @@
+
+
+
+
+/* General Styling */
+body {
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+/* Loader */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader {
+    border: 6px solid rgba(255, 255, 255, 0.2);
+    border-top: 6px solid #ffcc00;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide Loader */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #121212;
+    border-bottom: 2px solid #ffcc00;
+    height: 60px; /* Set a fixed height */
+    position: relative;
+    margin-top: 30px;
+    width:auto;
+}
+
+.option {
+        
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: absolute ;
+  /* Adjust the value to position the button as needed */
+    top: 50%;
+    transform: translateY(-50%); /* 
+    Vertically center the button */
+    height: 5px;
+    width: 5px;
+    margin-top: 10px;
+    
+}
+
+.option img {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: none;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+}
+
+nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    gap: 15px;
+}
+
+.game {
+    background: none;
+    border: 2px solid #ffcc00;
+    padding: 10px 15px;
+    color: #ffcc00;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.game:hover {
+    background: #ffcc00;
+    color: #121212;
+}
+/* Button Styling */
+.game {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid #ffcc00;
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.3);
+}
+
+.game:hover {
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    color: #121212;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0px 8px 15px rgba(255, 204, 0, 0.7);
+}
+
+/* Tournament Section */
+/* Tournament Section */
+.freeFire {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid #ffcc00;
+    padding: 14px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 450px; /* Size unchanged */
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(255, 204, 0, 0.3);
+    margin-top: 100px;
+    
+}
+
+.freeFire.selected {
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    color: #121212;
+    transform: scale(1.08);
+    box-shadow: 0px 10px 20px rgba(255, 204, 0, 0.9);
+    border: 2px solid #fff;
+}
+
+/* Hover Effect */
+.freeFire:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 204, 0, 0.7);
+}
+
+/* Name Styling */
+.name {
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffcc00;
+    text-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8);
+}
+
+/* Box Container for Horizontal Layout */
+/* Box Container for Horizontal Layout */
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Ensure karta hai ki items ek hi row me rahein */
+    gap: 20px;
+    margin-top: 20px;
+    overflow-x: auto; /* Agar content jyada ho to horizontal scroll enable karega */
+    white-space: nowrap; /* Text wrap na ho */
+    padding: 10px;
+}
+
+/* Common Box Styling */
+.entry, .winner, .gm-mode {
+    min-width: 140px; /* Ensure karta hai ki elements ek line me properly dikhain */
+    height: 140px;
+    border: solid 2px #ffcc00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffcc00;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Small Screens ke liye */
+@media (max-width: 600px) {
+    .box-container {
+        flex-wrap: wrap; /* Chhoti screens par wrap allow karega */
+    }
+}
+
+
+
+
+.entry:hover, .winner:hover, .gm-mode:hover {
+    background: rgba(255, 204, 0, 0.2);
+    transform: scale(1.1);
+}
+
+/* Join Button */
+.join {
+    width: 100%;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite alternate;
+}
+
+.join:hover {
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    color: #121212;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0px 8px 15px rgba(255, 204, 0, 0.6);
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Gradient Overlay */
+.join::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, #ffcc00, #ff9900, #ffcc00);
+    opacity: 0.5;
+    transition: top 0.4s, left 0.4s;
+}
+
+.join:hover::before {
+    top: 0;
+    left: 0;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); }
+    100% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 204, 0, 0.8); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+@keyframes moveAround {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(3deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.join:hover {
+    animation: moveAround 1s infinite alternate;
+}
+.match-info {
+    min-width: 160px;
+    height: 140px;
+    border: solid 2px #ffcc00;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffcc00;
+    border-radius: 10px;
+    
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.option{
+        background: none;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+         top: 10px; /* Top se 10px ka gap */
+    left: px;
+    border-radius: 50%;
+        
+}
+
+.option img {
+    width: 100%; /* Parent `.option` ke andar pura fit hoga */
+    height: 100%; /* Height maintain karega */
+    object-fit: contain; /* Image ko stretch hone se bachayega */
+}
+
+
+
+
+
+
+
+.sideBar{
+          background-color: #ffcc00;
+          height: 100%;
+          width: 70%;
+          display: none;
+          justify-content: center;
+          text-align: center;
+          position: relative;
+         
+}
+.sideBar.show{
+        display: block;
+}
+.sideBar.hide{
+       display: none;
+}
+body.hide{
+        display:none;
+}
+
+
+.full.hide{
+display:none;
+        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Overlay style */
+/* Overlay (sirf background blur karega) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Black transparent background */
+    backdrop-filter: blur(5px); /* Background blur karega */
+    z-index: 5;
+    display: none;
+}
+
+/* Jab sidebar open ho, sirf body blur ho */
+.body-blur {
+    filter: blur(5px);
+    pointer-events: none; /* Body ke elements disable ho jayenge */
+}
+
+/* Sidebar blur na ho */
+.sideBar {
+    position: fixed;
+    z-index: 10; /* Sidebar blur effect se upar rahega */
+    ; /* Background white rahega blur effect se bachane ke liye */
+}
+
+
+
+
+/* General Styling */
+.proPage {
+    background-color: #121212;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.proPage.show{
+        display: flex;
+}
+
+
+/* Top Section */
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px;
+}
+
+/* Home (Exit) Button */
+.exit {
+    background: #ffcc00;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.exit:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+/* Bottom Section */
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+}
+
+/* Profile Picture Section */
+.pagePic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.assPhoto {
+    background: none;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.assPhoto:hover {
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    color: #121212;
+}
+
+/* Input Fields */
+.proInfo input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ffcc00;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.proInfo input::placeholder {
+    color: rgba(255, 204, 0, 0.7);
+}
+
+.proInfo input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ff9900;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .bottom {
+        width: 95%;
+    }
+}
+
+
+
+
+
+
+
+.profile{
+        border-radius:50%;
+        height: 10rem;
+        width: 10rem;
+        margin: 5px;
+}
+
+
+#proPic{
+        border-bottom: 2px solid black;
+        margin-top: 50px;
+        
+}
+
+#barButton{
+        
+        margin-top: 40px;
+}
+
+
+
+
+
+.bar-btn{
+        height: 40px;
+        width: 150px;
+        margin: 18px;
+}
+
+
+
+.backButton {
+    position: absolute; /* Absolute position */
+    top: 10px; /* Top se 10px ka gap */
+    left: 10px; /* Left side corner */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+.profile-img {
+    width: 100px; /* Fixed size */
+    height: 100px; /* Fixed size */
+    border-radius: 50%; /* Circle shape */
+    border: 2px solid #ffcc00;
+    object-fit: cover; /* Image ko properly fit karega */
+}
+
+
+
+
+
+
+
+
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffcc00;
+}
+
+
+.sideBar {
+    background-color: #222; /* Dark Theme */
+    color: white;
+    height: 100vh;
+    width: 70%;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 50px;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 4px 0 10px rgba(255, 255, 255, 0.2);
+    z-index: 10;
+}
+
+.sideBar.show {
+    left: 0;
+}
+
+.backButton {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-name {
+    color: #ffcc00;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#proPic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ffcc00;
+    object-fit: cover;
+}
+
+#barButton {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar-btn {
+    width: 80%;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.bar-btn:hover {
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    color: black;
+    transform: scale(1.05);
+} 
+
+
+.coin {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #222; /* Dark background for contrast */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: end;
+}
+
+.coin span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#coinShow {
+    margin: 0;
+    padding: 0;
+}
+

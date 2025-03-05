@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="wallet.css">
+</head>
+<body>
+
+    <!-- 🔹 Wallet Page Header -->
+    <div class="wallet-header">
+        <button onclick="goHome()">🏠 Home</button>
+        <button onclick="viewHistory()">📜 Transaction History</button>
+    </div>
+
+    <!-- 🔹 Wallet Balance Section -->
+    <div class="wallet-container" id="walletSection">
+        <h3>My Wallet</h3>
+        <p id="coinBalance">💰 500 Coins</p>
+
+        <div class="wallet-stats">
+            <p>🏆 Won: <span id="wonCoins">200</span></p>
+            <p>💳 Deposited: <span id="depositedCoins">250</span></p>
+            <p>🎁 Bonus: <span id="bonusCoins">50</span></p>
+        </div>
+
+        <button class="topup-btn" onclick="openTopup()">Top-up</button>
+        <button class="withdraw-btn" onclick="openWithdraw()">Withdraw</button>
+    </div>
+
+    <!-- 🔹 Withdraw Options -->
+    <div id="withdrawPopup" class="popup-overlay">
+        <div class="popup">
+            <h3>Choose Withdrawal Method</h3>
+            <button onclick="openBank()">🏦 Direct Bank</button>
+            <button onclick="openUPI()">💵 UPI</button>
+            <button class="close-btn" onclick="closeWithdraw()">❌ Close</button>
+        </div>
+    </div>
+
+    <!-- 🔹 UPI Withdrawal Input -->
+    <div id="upiPopup" class="popup-overlay">
+        <div class="popup">
+            <h3>Enter UPI ID</h3>
+            <input type="text" id="upiInput" placeholder="Enter UPI ID">
+            <button onclick="processWithdrawal()">Withdraw</button>
+            <button class="close-btn" onclick="closeUPI()">❌ Close</button>
+        </div>
+    </div>
+
+<div id="topupSection" class="popup-overlay">
+    <div class="popup">
+        <h3>💰 Buy Coins</h3>
+        <button onclick="walletAddCoins(100)">+100 Coins (₹10)</button>
+        <button onclick="walletAddCoins(250)">+250 Coins (₹25)</button>
+        <button onclick="walletAddCoins(500)">+500 Coins (₹50)</button>
+        <button class="close-btn" onclick="closeTopup()">❌ Close</button>
+    </div>
+</div>
+
+
+<!-- 🔹 Transaction History Section (Initially Hidden) -->
+<div id="transactionHistory" class="popup-overlay">
+    <div class="popup">
+        <h3>📜 Transaction History</h3>
+        <ul id="historyList"></ul> <!-- 🔹 Yaha history show hogi -->
+        <button class="close-btn" onclick="closeHistory()">❌ Close</button>
+    </div>
+</div>
+
+    <script src="wallet.js"></script>
+</body>
+</html>

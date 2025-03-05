@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tournament Matches</title>
+    <link rel="stylesheet" href="style 1.css" type="text/css" />
+</head>
+
+<body>
+    <div class="main"
+        <!-- Sidebar -->
+    <div class="sideBar">
+    <!-- 🔙 Back Button -->
+    <button class="backButton">
+        <img src="back.png" alt="Back">
+    </button>
+
+    <!-- 🖼 Profile Picture & Name -->
+    <div id="proPic">
+        <img id="sidebarProfile" class="profile-img" src="default-profile.png" alt="Profile Picture">
+        <p id="sidebarUserName">User Name</p> <!-- 👤 User Name -->
+    </div>
+
+    <!-- 🎮 Wallet & Edit Profile -->
+    <div id="barButton">
+        <button class="bar-btn" id="wallet">💰 Wallet</button>
+        <button class="bar-btn" id="editProBtn">✏️ Edit Profile</button>
+    </div>
+
+    <!-- 📌 Extra Options -->
+    <div id="barOptions">
+        <button class="bar-btn">📢 Referral</button>
+        <button class="bar-btn" id="setting">⚙️ Settings</button>
+        <button class="bar-btn">❓ Help</button>
+        <button class="bar-btn">🎥 Tutorial</button>
+        <button class="bar-btn">☎️ Customer Service</button>
+    </div>
+</div>
+
+<div class="overlay">
+        
+</div>
+
+        <div class="full">
+            <div class="container">
+                 
+               <header class="header">
+    
+                        <button class="option">
+                <img srcset="option.png" src="option.png" alt="home.png">
+                
+      
+         
+    </button>   
+
+   <div class="coin">
+      <span id="numOfCoin">🪙<p id="coinShow">0</p> 
+      </span>
+                 
+         </div>
+
+</header>
+    <nav>
+        <button class="game" data-game="freefire">Free Fire</button>
+        <button class="game" data-game="bgmi">BGMI</button>
+    </nav>
+
+
+
+            </div>
+
+            <div class="match">
+                <section class="freeFire">
+                    <p class="name">Free Fire Max</p>
+                    <div class="box-container">
+                        <div class="entry">Entry Fee: ₹10</div>
+                        <div class="winner">Winning Price: ₹400</div>
+                        <div class="gm-mode">Mode: Solo</div>
+                        <div class="match-info">
+                            Match Time: <span id="matchTime">14:30</span><br>
+                            <div class="slots">
+                                Slots: <span id="joined">5</span> / <span id="totalSlots">100</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="join" id="joinButton" disabled>Join Now</button>  
+                </section>
+            </div>
+        </div>
+
+
+
+        <!-- Profile Edit Page -->
+        <div class="proPage">
+            <div class="top">
+                <button class="exit" onclick="goHome()">Home</button>
+            </div>
+            <div class="bottom">
+                <div class="pagePic">
+                    <input type="file" id="profilePicInput" accept="image/*" hidden />
+                    <img id="profilePic" class="profile-img" src="default.jpg" alt="Profile Picture" />
+                    <button class="assPhoto" onclick="document.getElementById('profilePicInput').click()">+</button>
+                </div>
+                <div class="proInfo">
+                    <input class="proName" id="nameInput" placeholder="Name">          
+                    <input class="proPass" id="passwordInput" placeholder="Password" type="password">
+                    <button class="togglePass" onclick="togglePassword()">👁</button>
+                    <input class="infoEmail" id="emailInput" type="email" placeholder="Email"/>
+                    <input class="proNum" id="numberInput" type="number" placeholder="Mobile Number">  
+                    <button class="saveBtn" onclick="saveProfile()">Save</button>
+                    
+                    
+                           </div>  
+                
+                
+            </div>    
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
